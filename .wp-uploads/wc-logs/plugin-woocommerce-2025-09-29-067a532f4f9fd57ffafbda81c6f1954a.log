@@ -1,0 +1,2 @@
+2025-09-29T18:02:50+00:00 INFO Payment gateway enabled: "Cash on delivery"
+2025-09-29T18:04:19+00:00 WARNING The image upload failed: "cURL error 7: Failed to connect to localhost port 8888 after 0 ms: Could not connect to server", creating the product without image

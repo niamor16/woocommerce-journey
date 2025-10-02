@@ -1,0 +1,6 @@
+ID,Type,SKU,Name,Published,Is featured?,Visibility in catalog,Short description,Description,Tax status,Tax class,In stock?,Stock,Backorders allowed?,Sold individually?,Regular price,Sale price,Categories,Tags,Images,Download limit,Download expiry,Parent
+, simple,CAF-PAR-250, Café Paris 250g,1,0,visible,"Blend arabica, notes chocolat.","Un café de spécialité torréfié à Paris.",taxable,,1,,0,0,8.90,,Épicerie > Café,boisson,,,
+, simple,THÉ-VERT-100, Thé vert Sencha 100g,1,0,visible,"Thé vert japonais léger.","Feuilles entières, idéal pour l'après-midi.",taxable,,1,,0,0,6.50,,Épicerie > Thé,boisson,,,
+, simple,PAIN-TRADI, Pain tradition 400g,1,0,visible,"Croute fine, mie alvéolée.","Cuit chaque matin, farine française.",taxable,,1,,0,0,2.20,,Boulangerie,pain,,,
+, simple,BOUQUET-CLASS, Bouquet classique,1,0,visible,"Bouquet 12 tiges saison.","Fleurs fraîches de producteurs locaux.",taxable,,1,,0,0,24.90,,Fleuriste,fleurs,,,
+, simple,FORMULE-DÉJ, Formule déjeuner,1,0,visible,"Sandwich + boisson.","Choix au retrait ou en notes de commande.",taxable,,1,,0,0,9.90,,Restauration,menu,,,

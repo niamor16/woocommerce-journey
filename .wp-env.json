@@ -1,0 +1,17 @@
+{
+    "core": "WordPress/WordPress",
+    "plugins": [
+      "https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip",
+      "./plugins/local-delivery",
+      "./plugins/nmr-horizon"
+    ],
+    "mappings": {
+      "wp-content/uploads": "./.wp-uploads"
+    },
+    "config": {
+      "WP_DEBUG": true,
+      "WP_DEBUG_LOG": true,
+      "SCRIPT_DEBUG": true
+    }
+  }
+  

@@ -1,0 +1,20 @@
+{
+  "name": "woocom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-env start",
+    "restart": "wp-env stop && wp-env start",
+    "stop": "wp-env stop",
+    "clean": "wp-env destroy",
+    "cli": "wp-env run cli wp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@wordpress/env": "^10.31.0"
+  }
+}
