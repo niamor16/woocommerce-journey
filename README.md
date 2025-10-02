@@ -156,6 +156,23 @@ make i18n mon-plugin
 
 #### 3. Générer le .mo
 
+plusieurs options :
+
+### Option A — **POEdit** (simple et efficace)
+
+1. Ouvre `wc-giftwrap-101.pot` dans POEdit.
+2. “Créer une nouvelle traduction” → choisis **Français (France)** → `fr_FR`.
+3. Traduis les chaînes (ex. *“Éligible à l’emballage cadeau”*).
+4. Enregistre dans `wp-content/plugins/wc-giftwrap-101/languages/fr_FR.po`.
+    POEdit génère **fr_FR.mo** automatiquement au même endroit.
+
+### Option B — **Loco Translate** (plugin)
+
+- Installe “Loco Translate” sur ton site → va dans **Loco Translate → Plugins → WC Gift Wrap 101** → “+ New language” → “French (France)” → choisis le **répertoire du plugin** pour stocker les fichiers → traduis → sauvegarde.
+- Il te produira `languages/fr_FR.po` et `fr_FR.mo`.
+
+> WordPress chargera `fr_FR.mo` quand le **langage du site** ou de **l’utilisateur** est `fr_FR` (Réglages → Général → *Langue du site*, ou Profil utilisateur → *Langue*).
+
 
 
 ## Produit
