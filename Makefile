@@ -22,11 +22,7 @@ i18n:
 		exit 1; \
 	fi
 	@plugin=$(filter-out $@,$(MAKECMDGOALS)); \
-	echo "[INFO] Génération du .pot pour $$plugin"; \
-	$(DOCKER_PHP) wp i18n make-pot \
-		$(PLUGINS_DIR)/$$plugin \
-		$(PLUGINS_DIR)/$$plugin/languages/$$plugin.pot \
-		--exclude=vendor,node_modules,tests
+	npm run i18n -- $$plugin
 
 # Astuce pour ne pas traiter l'argument comme une vraie cible
 %:

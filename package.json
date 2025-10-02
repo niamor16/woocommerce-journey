@@ -8,7 +8,8 @@
     "restart": "wp-env stop && wp-env start",
     "stop": "wp-env stop",
     "clean": "wp-env destroy",
-    "cli": "wp-env run cli wp"
+    "cli": "wp-env run cli wp",
+    "i18n": "sh -c 'plugin=$1; npx wp-env run cli wp i18n make-pot /var/www/html/wp-content/plugins/$plugin /var/www/html/wp-content/plugins/$plugin/languages/$plugin.pot --exclude=vendor,node_modules,tests' --"
   },
   "keywords": [],
   "author": "",

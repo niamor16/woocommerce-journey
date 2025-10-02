@@ -1,0 +1,36 @@
+# Copyright (C) 2025 Niamor
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: NMR Horizon plugin 0.0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nmr-horizon\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-10-02T11:59:48+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: nmr-horizon\n"
+
+#. Plugin Name of the plugin
+#: nmr-horizon.php
+msgid "NMR Horizon plugin"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: nmr-horizon.php
+msgid "https://github.com/niamor16"
+msgstr ""
+
+#. Description of the plugin
+#: nmr-horizon.php
+msgid "Petite plugin de découverte de l'environnement, des hooks et de la structure"
+msgstr ""
+
+#. Author of the plugin
+#: nmr-horizon.php
+msgid "Niamor"
+msgstr ""
