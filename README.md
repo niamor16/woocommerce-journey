@@ -117,6 +117,45 @@ public static function load_textdomain()
 
 ### Traduction
 
+#### 1. Créer les chaines
+
+```php
+const TEXT_DOMAIN = '{nom_du_domaine}'; 
+// Base : __($text, $domain)
+$text = __('key', self::TEXT_DOMAIN);
+
+// Chaine avec variables
+$label = sprintf(__('Emballage cadeau (%s)', self::TEXT_DOMAIN), wc_price($amount));
+
+// Sur des attributs HTML, privilégie esc_attr__() ou esc_html__() pour bien échapper
+$html = sprintf('<label title="%s"">', esc_attr__('Option cadeau', self::TEXT_DOMAIN));
+    
+// Pour une chaine Javascript
+wp_set_script_translations('handle-script', self::TEXT_DOMAIN, plugin_dir_path(__FILE__) . 'languages');
+
+// Avec contexte : _x($text, $context, $domain)
+    // Dans l'admin produit
+    _x('Wrap', 'gift wrapping option label', self::TEXT_DOMAIN);
+
+    // Dans le front, CSS helper
+    _x('Wrap', 'CSS wrapper element label', self::TEXT_DOMAIN);
+
+// Pluriel : _n($text_sing, $text_pluriel, $count, $domain)
+(_n('%d article emballé', '%d articles emballés', $count, self::TEXT_DOMAIN)
+```
+
+> Rappel : **ne concatène jamais** des bouts de phrases traduisibles, laisse une *seule* chaîne complète.
+
+#### 2. Générer le .pot
+
+la commande make pour générer le *.pot* :
+
+```bash
+make i18n mon-plugin
+```
+
+#### 3. Générer le .mo
+
 
 
 ## Produit

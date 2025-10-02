@@ -84,7 +84,7 @@ final class NmrHorizon
     {
         echo '<div class="options_group">';
         woocommerce_wp_checkbox([
-            'id' => self::META_ENABLED,
+            'id' => self::META_ENABLED, 
             'label' => __('Éligible à l\'emballage cadeau', self::TEXT_DOMAIN),
             'description' => __('Si activé, ce produit pourra proposer l\'option emballage au checkout.', self::TEXT_DOMAIN),
         ]);
