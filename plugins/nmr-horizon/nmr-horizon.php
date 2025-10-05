@@ -49,6 +49,9 @@ final class NmrHorizon
         // hook metadata produit
         add_action('woocommerce_product_options_general_product_data', [$this, 'product_field']);
         add_action('woocommerce_admin_process_product_object', [$this, 'save_product_field']);
+
+        // Fiche produit
+        add_action('woocommerce_single_product_summary', [$this, 'render_badge']);
     }
 
     /**
@@ -96,6 +99,18 @@ final class NmrHorizon
         // Valeur envoyée par woocommerce_wp_checkbox : 'yes' ou absente
         $val = isset($_POST[self::META_ENABLED]) && $_POST[self::META_ENABLED] === 'yes' ? 'yes' : 'no';
         $product->update_meta_data(self::META_ENABLED, $val);
+    }
+
+    public function render_badge()
+    {
+        if (!function_exists('is_product') || !is_product()) return;
+        global $product;
+        if (!$product || !($product instanceof WC_Product)) return;
+        if ($product->get_meta(self::META_ENABLED) !== 'yes') return;
+
+        $label = esc_html__('Emballage cadeau disponible', self::TEXT_DOMAIN);
+        echo '<div class="wc-gw-badge" style="display:inline-block;margin:8px 0;padding:4px 8px;border:1px dashed; border-radius:4px; font-size:12px;">'
+            . $label . '</div>';
     }
 }
 
