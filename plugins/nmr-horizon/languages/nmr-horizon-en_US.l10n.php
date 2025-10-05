@@ -1,0 +1,3 @@
+<?php
+return ['project-id-version'=>'NMR Horizon plugin 0.0.1','report-msgid-bugs-to'=>'https://wordpress.org/support/plugin/nmr-horizon','last-translator'=>'','language-team'=>'English (United States)','mime-version'=>'1.0','content-type'=>'text/plain; charset=UTF-8','content-transfer-encoding'=>'8bit','pot-creation-date'=>'2025-10-02T11:59:48+00:00','po-revision-date'=>'2025-10-02 12:15+0000','x-generator'=>'Loco https://localise.biz/','x-domain'=>'nmr-horizon
+','language'=>'en_US','plural-forms'=>'nplurals=2; plural=n != 1;','x-loco-version'=>'2.8.0; wp-6.9-alpha-60808; php-8.3.26','messages'=>[]];

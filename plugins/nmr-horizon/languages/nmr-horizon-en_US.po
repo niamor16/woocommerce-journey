@@ -4,15 +4,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NMR Horizon plugin 0.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nmr-horizon\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: English (United States)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-02T12:18:35+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"POT-Creation-Date: 2025-10-02T11:59:48+00:00\n"
+"PO-Revision-Date: 2025-10-02 12:15+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Domain: nmr-horizon\n"
+"\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.8.0; wp-6.9-alpha-60808; php-8.3.26"
 
 #. Plugin Name of the plugin
 #: nmr-horizon.php
@@ -27,7 +31,8 @@ msgstr ""
 
 #. Description of the plugin
 #: nmr-horizon.php
-msgid "Petite plugin de découverte de l'environnement, des hooks et de la structure"
+msgid ""
+"Petite plugin de découverte de l'environnement, des hooks et de la structure"
 msgstr ""
 
 #. Author of the plugin
