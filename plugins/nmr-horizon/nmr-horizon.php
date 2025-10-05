@@ -52,6 +52,11 @@ final class NmrHorizon
 
         // Fiche produit
         add_action('woocommerce_single_product_summary', [$this, 'render_badge']);
+
+        // Admin produit
+        add_action('manage_edit-product_columns', [$this, 'admin_list_add_column']);
+        add_action('manage_product_posts_custom_column', [$this, 'admin_list_render_column'], 10, 2);
+        add_action('admin_head', [$this, 'admin_list_column_css']); // le style
     }
 
     /**
@@ -87,7 +92,7 @@ final class NmrHorizon
     {
         echo '<div class="options_group">';
         woocommerce_wp_checkbox([
-            'id' => self::META_ENABLED, 
+            'id' => self::META_ENABLED,
             'label' => __('Éligible à l\'emballage cadeau', self::TEXT_DOMAIN),
             'description' => __('Si activé, ce produit pourra proposer l\'option emballage au checkout.', self::TEXT_DOMAIN),
         ]);
@@ -111,6 +116,62 @@ final class NmrHorizon
         $label = esc_html__('Emballage cadeau disponible', self::TEXT_DOMAIN);
         echo '<div class="wc-gw-badge" style="display:inline-block;margin:8px 0;padding:4px 8px;border:1px dashed; border-radius:4px; font-size:12px;">'
             . $label . '</div>';
+    }
+
+    public function admin_list_add_column($cols)
+    {
+        // Insère notre colonne juste après le titre
+        $new = [];
+        foreach ($cols as $k => $v) {
+            $new[$k] = $v;
+            if ($k === 'name') {
+                $new['wc_gw'] = esc_html__('Emballage', self::TEXT_DOMAIN);
+            }
+        }
+        return $new;
+    }
+
+    public function admin_list_render_column($column, $post_id)
+    {
+        if ($column !== 'wc_gw') return;
+        $p = wc_get_product($post_id);
+        if (!$p) return;
+        if ($p->get_meta(self::META_ENABLED) === 'yes') {
+            echo sprintf('<span class="badge badge-success">%s</span>', esc_html__('Oui', self::TEXT_DOMAIN));
+        } else {
+            echo sprintf('<span class="badge badge-danger">%s</span>', esc_html__('Non', self::TEXT_DOMAIN));
+        }
+    }
+
+    public function admin_list_column_css()
+    {
+        $screen = get_current_screen();
+        if (!$screen || $screen->id !== 'edit-product') return;
+        echo '<style>
+        .fixed .column-wc_gw { width: 70px; text-align:center; }
+         .badge {
+            display: inline-block;
+            padding: .25em .4em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25rem;
+        }
+        
+        .badge-success {    
+            color: #fff;
+            background-color: #28a745;
+        }
+
+        .badge-danger {    
+            color: #fff;
+            background-color: #dc3545;
+        }
+
+    </style>';
     }
 }
 
