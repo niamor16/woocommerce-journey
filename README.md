@@ -267,35 +267,39 @@ public function product_field()
 
 
 /* OU formulaire dans un onglet personnalisé */
-add_filter('woocommerce_product_data_tabs', function($tabs){
-    $prio = isset($tabs['shipping']['priority']) ? ((int)$tabs['shipping']['priority'] + 1) : 21;
-    $tabs['wc_gw_tab'] = [
-        'label'    => __('Emballage cadeau', 'wc-giftwrap-101'),
-        'target'   => 'wc_gw_tab_panel',                 // id du <div> panneau ci-dessous
-        'class'    => ['show_if_simple','show_if_variable','show_if_grouped','show_if_external'],
-        'priority' => $prio,
+add_filter('woocommerce_product_data_tabs', [$this, 'product_data_tabs']);
+add_action('woocommerce_product_data_panels', [$this, 'product_data_panel']);
+
+public function product_data_tabs($tabs)
+{
+    $tabs['wc_nmrhrz_tab'] = [
+        'label' => __('Emaballage cadeau', self::TEXT_DOMAIN),
+        'target' => 'wc_nmrhrz_tab_panel',
+        'class' => ['show_if_simple','show_if_variable','show_if_grouped','show_if_external'],
+        // 'priority' => $prio,
     ];
     return $tabs;
-});
+}
 
-add_action('woocommerce_product_data_panels', function(){
-    echo '<div id="wc_gw_tab_panel" class="panel woocommerce_options_panel hidden">';
+public function product_data_panel()
+{
+    echo '<div id="wc_nmrhrz_tab_panel" class="panel woocommerce_options_panel hidden">';
     echo '<div class="options_group">';
     woocommerce_wp_checkbox([
-        'id'          => WCGiftWrap101::META_ENABLED,
-        'label'       => __('Éligible à l\'emballage cadeau', 'wc-giftwrap-101'),
-        'description' => __('Active l’option cadeau pour ce produit.', 'wc-giftwrap-101'),
+        'id'          => self::META_ENABLED,
+        'label'       => __('Éligible à l\'emballage cadeau', self::TEXT_DOMAIN),
+        'description' => __('Active l’option cadeau pour ce produit.', self::TEXT_DOMAIN),
     ]);
     // exemple d’autre champ (montant spécifique au produit)
     woocommerce_wp_text_input([
         'id'          => '_wc_gw_amount_override',
-        'label'       => __('Montant spécifique (optionnel)', 'wc-giftwrap-101'),
+        'label'       => __('Montant spécifique (optionnel)', self::TEXT_DOMAIN),
         'desc_tip'    => true,
-        'description' => __('Laisse vide pour utiliser le montant global.', 'wc-giftwrap-101'),
+        'description' => __('Laisse vide pour utiliser le montant global.', self::TEXT_DOMAIN),
         'type'        => 'text',
     ]);
     echo '</div></div>';
-});
+}
 
 /**
 * Notes utiles :

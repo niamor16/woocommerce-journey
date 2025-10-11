@@ -46,10 +46,6 @@ final class NmrHorizon
         // Garde-fou : prévenir si WooCommerce n'est pas actif
         add_action('admin_init', [$this, 'maybe_warn_missing_wc']);
 
-        // hook metadata produit
-        add_action('woocommerce_product_options_general_product_data', [$this, 'product_field']);
-        add_action('woocommerce_admin_process_product_object', [$this, 'save_product_field']);
-
         // Fiche produit
         add_action('woocommerce_single_product_summary', [$this, 'render_badge']);
 
@@ -57,6 +53,9 @@ final class NmrHorizon
         add_action('manage_edit-product_columns', [$this, 'admin_list_add_column']);
         add_action('manage_product_posts_custom_column', [$this, 'admin_list_render_column'], 10, 2);
         add_action('admin_head', [$this, 'admin_list_column_css']); // le style
+        add_filter('woocommerce_product_data_tabs', [$this, 'product_data_tabs']);
+        add_action('woocommerce_product_data_panels', [$this, 'product_data_panel']);
+        add_action('woocommerce_admin_process_product_object', [$this, 'save_product_field']);
     }
 
     /**
@@ -172,6 +171,37 @@ final class NmrHorizon
         }
 
     </style>';
+    }
+
+    public function product_data_tabs($tabs)
+    {
+        $tabs['wc_nmrhrz_tab'] = [
+            'label' => __('Emaballage cadeau', self::TEXT_DOMAIN),
+            'target' => 'wc_nmrhrz_tab_panel',
+            'class' => ['show_if_simple','show_if_variable','show_if_grouped','show_if_external'],
+            // 'priority' => $prio,
+        ];
+        return $tabs;
+    }
+
+    public function product_data_panel()
+    {
+        echo '<div id="wc_nmrhrz_tab_panel" class="panel woocommerce_options_panel hidden">';
+        echo '<div class="options_group">';
+        woocommerce_wp_checkbox([
+            'id'          => self::META_ENABLED,
+            'label'       => __('Éligible à l\'emballage cadeau', self::TEXT_DOMAIN),
+            'description' => __('Active l’option cadeau pour ce produit.', self::TEXT_DOMAIN),
+        ]);
+        // exemple d’autre champ (montant spécifique au produit)
+        woocommerce_wp_text_input([
+            'id'          => '_wc_gw_amount_override',
+            'label'       => __('Montant spécifique (optionnel)', self::TEXT_DOMAIN),
+            'desc_tip'    => true,
+            'description' => __('Laisse vide pour utiliser le montant global.', self::TEXT_DOMAIN),
+            'type'        => 'text',
+        ]);
+        echo '</div></div>';
     }
 }
 
